@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Saïda et Frères Services Color Palette */
+    --brand-deep-blue: 203 89% 16%;         /* #0A2540 */
+    --brand-energy-green: 145 60% 48%;      /* #2ECC71 */
+    --brand-bright-orange: 35 84% 52%;      /* #F39C12 */
+    --brand-pure-white: 0 0% 100%;          /* #FFFFFF */
+    --brand-light-gray: 216 26% 96%;        /* #F4F6F7 */
+    
+    /* Primary Design System */
+    --background: var(--brand-pure-white);
+    --foreground: var(--brand-deep-blue);
+
+    --card: var(--brand-pure-white);
+    --card-foreground: var(--brand-deep-blue);
+
+    --popover: var(--brand-pure-white);
+    --popover-foreground: var(--brand-deep-blue);
+
+    --primary: var(--brand-deep-blue);
+    --primary-foreground: var(--brand-pure-white);
+
+    --secondary: var(--brand-energy-green);
+    --secondary-foreground: var(--brand-pure-white);
+
+    --muted: var(--brand-light-gray);
+    --muted-foreground: var(--brand-deep-blue);
+
+    --accent: var(--brand-bright-orange);
+    --accent-foreground: var(--brand-pure-white);
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--brand-pure-white);
+
+    --border: var(--brand-light-gray);
+    --input: var(--brand-light-gray);
+    --ring: var(--brand-deep-blue);
+
+    /* Brand specific tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(var(--brand-deep-blue)), hsl(var(--brand-energy-green)));
+    --glow-effect: 0 0 30px hsl(var(--brand-bright-orange) / 0.5);
+    --logo-hover-glow: 0 0 20px hsl(var(--brand-energy-green) / 0.8);
+    --button-glow: 0 8px 25px hsl(var(--brand-bright-orange) / 0.4);
+    
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: var(--brand-deep-blue);
+    --foreground: var(--brand-pure-white);
+
+    --card: var(--brand-deep-blue);
+    --card-foreground: var(--brand-pure-white);
+
+    --popover: var(--brand-deep-blue);
+    --popover-foreground: var(--brand-pure-white);
+
+    --primary: var(--brand-pure-white);
+    --primary-foreground: var(--brand-deep-blue);
+
+    --secondary: var(--brand-energy-green);
+    --secondary-foreground: var(--brand-pure-white);
+
+    --muted: var(--brand-deep-blue);
+    --muted-foreground: var(--brand-light-gray);
+
+    --accent: var(--brand-bright-orange);
+    --accent-foreground: var(--brand-pure-white);
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: var(--brand-pure-white);
+
+    --border: var(--brand-energy-green);
+    --input: var(--brand-deep-blue);
+    --ring: var(--brand-energy-green);
+    
+    --sidebar-background: var(--brand-deep-blue);
+    --sidebar-foreground: var(--brand-pure-white);
+    --sidebar-primary: var(--brand-energy-green);
+    --sidebar-primary-foreground: var(--brand-pure-white);
+    --sidebar-accent: var(--brand-bright-orange);
+    --sidebar-accent-foreground: var(--brand-pure-white);
+    --sidebar-border: var(--brand-energy-green);
+    --sidebar-ring: var(--brand-bright-orange);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    scroll-behavior: smooth;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  
+  p, span {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+}
+
+/* Brand Animations */
+@keyframes logo-glow {
+  0%, 100% { 
+    box-shadow: var(--logo-hover-glow);
+    transform: translateY(0px);
+  }
+  50% { 
+    box-shadow: var(--glow-effect);
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  }
+  50% { 
+    transform: translateY(-10px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px hsl(var(--brand-bright-orange) / 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 25px hsl(var(--brand-bright-orange) / 0.9);
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { 
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes parallax-hero {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-20px) scale(1.02); }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility Classes */
+.logo-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-hover:hover {
+  animation: logo-glow 1.5s ease-in-out infinite;
+}
+
+.pulse-orange {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.8s ease-out;
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.8s ease-out;
+}
+
+.fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.parallax-slow {
+  transform: translateY(calc(var(--parallax-offset, 0) * 0.5));
+}
+
+.whatsapp-hover:hover {
+  animation: whatsapp-pulse 1.5s ease-in-out infinite;
+}
+
+.hero-background {
+  animation: parallax-hero 20s ease-in-out infinite alternate;
+}
+
+/* FAQ Icon Animations */
+@keyframes icon-glow {
+  0%, 100% { 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(0px) scale(1);
+  }
+  50% { 
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.05);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+.faq-icon-hover:hover {
+  animation: icon-glow 2s ease-in-out infinite;
+}
+
+.sparkle-effect {
+  animation: sparkle 3s ease-in-out infinite;
+}
