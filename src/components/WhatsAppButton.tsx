@@ -29,11 +29,11 @@ const WhatsAppButton = () => {
       <Button
         asChild
         size="sm"
-        className="bg-accent hover:bg-accent/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative animate-pulse hover:animate-none"
+        className="bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative animate-pulse hover:animate-none whatsapp-hover"
         style={{
           width: '56px',
           height: '56px',
-          boxShadow: '0 4px 20px rgba(243, 156, 18, 0.4)'
+          boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)'
         }}
       >
         <a
@@ -45,7 +45,7 @@ const WhatsAppButton = () => {
           <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
           
           {/* Effet de pulse subtil */}
-          <div className="absolute inset-0 rounded-full bg-accent opacity-50 animate-ping" />
+          <div className="absolute inset-0 rounded-full bg-secondary opacity-50 animate-ping" />
         </a>
       </Button>
     </div>
