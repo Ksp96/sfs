@@ -53,7 +53,7 @@ const WhatsAppButton = () => {
               </a>
             </Button>
           </TooltipTrigger>
-          <TooltipContent>
+          <TooltipContent className="bg-primary text-white border-primary">
             <p>Discutez sur WhatsApp</p>
           </TooltipContent>
         </Tooltip>
