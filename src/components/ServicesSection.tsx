@@ -25,7 +25,7 @@ const ServicesSection = () => {
 
   const services = [
     {
-      icon: <ArrowLeftRight className="h-16 w-16" />,
+      icon: <ArrowLeftRight className="h-8 w-8" />,
       title: "Dépôt & Retrait",
       description: "Tout réseau mobile",
       details: "Effectuez vos transactions en toute sécurité sur tous les réseaux : MTN, Orange, Moov et Wave. Service rapide et fiable.",
@@ -33,7 +33,7 @@ const ServicesSection = () => {
       delay: "0s"
     },
     {
-      icon: <Receipt className="h-16 w-16" />,
+      icon: <Receipt className="h-8 w-8" />,
       title: "Paiement de factures",
       description: "SODECI, CIE, Canal+",
       details: "Réglez facilement vos factures d'eau, d'électricité et de télévision. Plus besoin de faire la queue, nous nous occupons de tout.",
@@ -41,7 +41,7 @@ const ServicesSection = () => {
       delay: "0.2s"
     },
     {
-      icon: <Package className="h-16 w-16" />,
+      icon: <Package className="h-8 w-8" />,
       title: "Expédition de colis",
       description: "Partout en Côte d'Ivoire",
       details: "Envoyez vos colis en toute confiance dans toute la Côte d'Ivoire. Suivi en temps réel et livraison garantie.",
@@ -56,6 +56,9 @@ const ServicesSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* En-tête de section */}
           <div className={`text-center mb-16 transition-all duration-800 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              Nos Services
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Découvrez notre gamme complète de services financiers et logistiques, 
               conçus pour simplifier votre quotidien.
@@ -67,7 +70,7 @@ const ServicesSection = () => {
             {services.map((service, index) => (
               <Card
                 key={service.title}
-                className={`group relative overflow-hidden border-2 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:scale-105 min-h-[400px] ${
+                className={`group relative overflow-hidden border-2 hover:border-accent/50 transition-all duration-500 hover:shadow-2xl hover:scale-105 ${
                   isVisible ? 'slide-in-left opacity-100' : 'opacity-0 translate-x-[-50px]'
                 }`}
                 style={{
@@ -79,20 +82,20 @@ const ServicesSection = () => {
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                 
-                <CardHeader className="relative z-10 text-center pb-6 pt-8">
-                  <div className={`mx-auto mb-6 p-6 rounded-full bg-gradient-to-br ${service.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                <CardHeader className="relative z-10 text-center pb-4">
+                  <div className={`mx-auto mb-4 p-4 rounded-full bg-gradient-to-br ${service.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {service.icon}
                   </div>
-                  <CardTitle className="text-3xl font-bold text-primary group-hover:text-accent transition-colors duration-300 mb-3">
+                  <CardTitle className="text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-xl font-medium text-secondary">
+                  <CardDescription className="text-lg font-medium text-secondary">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
                 
-                <CardContent className="relative z-10 text-center px-6 pb-8">
-                  <p className="text-base text-muted-foreground leading-relaxed">
+                <CardContent className="relative z-10 text-center">
+                  <p className="text-muted-foreground leading-relaxed">
                     {service.details}
                   </p>
                 </CardContent>
