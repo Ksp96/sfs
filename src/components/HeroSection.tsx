@@ -91,28 +91,27 @@ const HeroSection = () => {
           </div>
 
           {/* Box des services en bas à gauche */}
-          <div className="slide-in-left w-80 bg-black/60 backdrop-blur-md rounded-xl p-5 border border-white/15 shadow-xl mb-8">
-            <h3 className="text-lg font-bold text-white mb-4 text-center">Nos Services</h3>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
-                <ArrowLeftRight className="h-4 w-4 text-secondary flex-shrink-0" />
-                <span className="text-white font-medium text-sm">Dépôts</span>
+          <div className="slide-in-left w-96 bg-black/60 backdrop-blur-md rounded-xl p-6 border border-white/15 shadow-xl mb-8">
+            <div className="space-y-4">
+              <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                <ArrowLeftRight className="h-6 w-6 text-secondary flex-shrink-0" />
+                <span className="text-white font-medium text-base">Dépôts</span>
               </div>
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
-                <Banknote className="h-4 w-4 text-accent flex-shrink-0" />
-                <span className="text-white font-medium text-sm">Retraits</span>
+              <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                <Banknote className="h-6 w-6 text-accent flex-shrink-0" />
+                <span className="text-white font-medium text-base">Retraits</span>
               </div>
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
-                <Receipt className="h-4 w-4 text-primary flex-shrink-0" />
-                <span className="text-white font-medium text-sm">Paiements de facture</span>
+              <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                <Receipt className="h-6 w-6 text-primary flex-shrink-0" />
+                <span className="text-white font-medium text-base">Paiements de facture</span>
               </div>
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
-                <UserPlus className="h-4 w-4 text-secondary flex-shrink-0" />
-                <span className="text-white font-medium text-sm">Inscriptions en ligne</span>
+              <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                <UserPlus className="h-6 w-6 text-secondary flex-shrink-0" />
+                <span className="text-white font-medium text-base">Inscriptions en ligne</span>
               </div>
-              <div className="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/10 transition-colors duration-300">
-                <Package className="h-4 w-4 text-accent flex-shrink-0" />
-                <span className="text-white font-medium text-sm">Expéditions de colis</span>
+              <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
+                <Package className="h-6 w-6 text-accent flex-shrink-0" />
+                <span className="text-white font-medium text-base">Expéditions de colis</span>
               </div>
             </div>
           </div>
