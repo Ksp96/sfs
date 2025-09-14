@@ -156,22 +156,22 @@ const ChatWidget = () => {
   return (
     <>
       {/* Chat Button */}
-      <div className="fixed bottom-6 left-6 z-50">
+      <div className="fixed bottom-6 left-20 z-50">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 rounded-full bg-accent hover:bg-accent/90 shadow-xl hover:shadow-2xl transition-all duration-300 group relative"
+          className="w-14 h-14 rounded-full bg-accent hover:bg-accent/90 shadow-xl hover:shadow-2xl transition-all duration-300 group relative animate-bounce"
           size="icon"
         >
-          <div className="absolute inset-0 bg-accent rounded-full animate-ping opacity-20"></div>
+          <div className="absolute inset-0 bg-accent rounded-full animate-pulse opacity-30"></div>
           {isOpen ? (
-            <X className="h-6 w-6 text-white transition-transform duration-300 group-hover:rotate-90" />
+            <X className="h-5 w-5 text-white transition-transform duration-300 group-hover:rotate-90" />
           ) : (
-            <MessageCircle className="h-6 w-6 text-white transition-transform duration-300 group-hover:scale-110" />
+            <MessageCircle className="h-5 w-5 text-white transition-transform duration-300 group-hover:scale-110" />
           )}
           
           {/* Tooltip */}
           {!isOpen && (
-            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-primary text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-primary text-white text-sm rounded-lg whitespace-nowrap opacity-100 transition-opacity duration-300 pointer-events-none">
               Posez vos questions
               <div className="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-primary"></div>
             </div>
