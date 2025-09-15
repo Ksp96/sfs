@@ -90,6 +90,27 @@ const ServicesSection = () => {
                   <div className={`mx-auto mb-4 p-4 rounded-full bg-gradient-to-br ${service.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                     {service.icon}
                   </div>
+                  
+                  {/* Logos des opérateurs pour la carte Dépôt & Retrait - juste sous l'icône */}
+                  {service.title === "Dépôt & Retrait" && (
+                    <div className="mb-4">
+                      <div className="flex justify-center items-center gap-2 max-w-[280px] mx-auto">
+                        <div className="bg-white/90 rounded-lg p-1.5 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={orangeLogo} alt="Orange Money" className="h-4 w-auto object-contain" />
+                        </div>
+                        <div className="bg-white/90 rounded-lg p-1.5 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={mtnLogo} alt="MTN Mobile Money" className="h-4 w-auto object-contain" />
+                        </div>
+                        <div className="bg-white/90 rounded-lg p-1.5 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={moovLogo} alt="Moov Money" className="h-4 w-auto object-contain" />
+                        </div>
+                        <div className="bg-white/90 rounded-lg p-1.5 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={waveLogo} alt="Wave" className="h-4 w-auto object-contain" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
                   <CardTitle className="text-2xl font-bold text-primary group-hover:text-accent transition-colors duration-300">
                     {service.title}
                   </CardTitle>
@@ -99,30 +120,9 @@ const ServicesSection = () => {
                 </CardHeader>
                 
                 <CardContent className="relative z-10 text-center">
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-muted-foreground leading-relaxed">
                     {service.details}
                   </p>
-                  
-                  {/* Logos des opérateurs pour la carte Dépôt & Retrait */}
-                  {service.title === "Dépôt & Retrait" && (
-                    <div className="mt-6 pt-4 border-t border-border/50">
-                      <p className="text-sm text-muted-foreground mb-3 font-medium">Réseaux supportés</p>
-                      <div className="grid grid-cols-2 gap-3 max-w-[200px] mx-auto">
-                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
-                          <img src={orangeLogo} alt="Orange Money" className="h-6 w-auto mx-auto object-contain" />
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
-                          <img src={mtnLogo} alt="MTN Mobile Money" className="h-6 w-auto mx-auto object-contain" />
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
-                          <img src={moovLogo} alt="Moov Money" className="h-6 w-auto mx-auto object-contain" />
-                        </div>
-                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
-                          <img src={waveLogo} alt="Wave" className="h-6 w-auto mx-auto object-contain" />
-                        </div>
-                      </div>
-                    </div>
-                  )}
                 </CardContent>
 
                 {/* Glow effect on hover */}
