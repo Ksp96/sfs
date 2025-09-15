@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Banknote, Receipt, Package, ArrowLeftRight } from 'lucide-react';
+import orangeLogo from '@/assets/orange-logo.png';
+import mtnLogo from '@/assets/mtn-logo.png';
+import moovLogo from '@/assets/moov-logo.png';
+import waveLogo from '@/assets/wave-logo.png';
 
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -95,9 +99,30 @@ const ServicesSection = () => {
                 </CardHeader>
                 
                 <CardContent className="relative z-10 text-center">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     {service.details}
                   </p>
+                  
+                  {/* Logos des opérateurs pour la carte Dépôt & Retrait */}
+                  {service.title === "Dépôt & Retrait" && (
+                    <div className="mt-6 pt-4 border-t border-border/50">
+                      <p className="text-sm text-muted-foreground mb-3 font-medium">Réseaux supportés</p>
+                      <div className="grid grid-cols-2 gap-3 max-w-[200px] mx-auto">
+                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={orangeLogo} alt="Orange Money" className="h-6 w-auto mx-auto object-contain" />
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={mtnLogo} alt="MTN Mobile Money" className="h-6 w-auto mx-auto object-contain" />
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={moovLogo} alt="Moov Money" className="h-6 w-auto mx-auto object-contain" />
+                        </div>
+                        <div className="bg-white/80 rounded-lg p-2 hover:bg-white transition-colors duration-300 shadow-sm">
+                          <img src={waveLogo} alt="Wave" className="h-6 w-auto mx-auto object-contain" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
 
                 {/* Glow effect on hover */}

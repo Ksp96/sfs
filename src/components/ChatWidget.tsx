@@ -156,7 +156,7 @@ const ChatWidget = () => {
   return (
     <>
       {/* Chat Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-4 z-50">
         <Button
           onClick={() => setIsOpen(!isOpen)}
           className="w-14 h-14 rounded-full bg-accent hover:bg-accent/90 shadow-xl hover:shadow-2xl transition-all duration-300 group relative animate-bounce"
@@ -181,7 +181,7 @@ const ChatWidget = () => {
 
       {/* Chat Panel */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-96 h-[500px] bg-card border-2 border-border rounded-2xl shadow-2xl z-40 animate-fade-in flex flex-col overflow-hidden">
+        <div className="fixed bottom-24 right-4 w-96 h-[500px] bg-card border-2 border-border rounded-2xl shadow-2xl z-40 animate-fade-in flex flex-col overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-primary to-secondary p-4 text-white">
             <div className="flex items-center gap-3">
