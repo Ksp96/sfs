@@ -2,9 +2,14 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Banknote, Receipt, Package, UserPlus, ArrowLeftRight } from 'lucide-react';
 import heroBackground from '@/assets/new-hero-background.png';
+import heroImage1 from '@/assets/hero-image-1.png';
+import heroImage2 from '@/assets/hero-image-2.png';
 
 const HeroSection = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const images = [heroBackground, heroImage1, heroImage2];
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -12,17 +17,34 @@ const HeroSection = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Slider automatique toutes les 2 secondes
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, [images.length]);
+
 
   return (
     <section id="accueil" className="relative min-h-screen flex items-center justify-start overflow-hidden">
-      {/* Background avec parallax amélioré */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-75"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.20)), url(${heroBackground})`,
-          transform: `translateY(${scrollY * 0.1}px) scale(${1 + scrollY * 0.0001})`,
-        }}
-      />
+      {/* Slider d'images en arrière-plan */}
+      {images.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            backgroundImage: `url(${image})`,
+            transform: `translateY(${scrollY * 0.1}px) scale(${1 + scrollY * 0.0001})`,
+          }}
+        />
+      ))}
+      
+      {/* Overlay sombre pour lisibilité du texte */}
+      <div className="absolute inset-0 bg-black/40" />
       
       {/* Overlay gradient sophistiqué */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-transparent to-transparent" />
@@ -91,7 +113,7 @@ const HeroSection = () => {
           </div>
 
           {/* Box des services en bas à gauche */}
-          <div className="slide-in-left w-72 bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/15 shadow-xl mb-8">
+          <div className="slide-in-left w-72 bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/15 shadow-xl mb-2">
             <div className="space-y-4">
               <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
                 <ArrowLeftRight className="h-6 w-6 text-secondary flex-shrink-0" />
