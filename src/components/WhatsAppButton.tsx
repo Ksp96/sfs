@@ -24,7 +24,7 @@ const WhatsAppButton = () => {
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
-    <div className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ${
+    <div className={`fixed bottom-6 left-6 z-50 transition-all duration-500 ${
       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
     }`}>
       <TooltipProvider>
