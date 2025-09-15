@@ -91,7 +91,7 @@ const HeroSection = () => {
           </div>
 
           {/* Box des services en bas à gauche */}
-          <div className="slide-in-left w-96 bg-black/60 backdrop-blur-md rounded-xl p-6 border border-white/15 shadow-xl mb-8">
+          <div className="slide-in-left w-72 bg-black/40 backdrop-blur-md rounded-xl p-6 border border-white/15 shadow-xl mb-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-4 p-3 rounded-lg hover:bg-white/10 transition-colors duration-300">
                 <ArrowLeftRight className="h-6 w-6 text-secondary flex-shrink-0" />
