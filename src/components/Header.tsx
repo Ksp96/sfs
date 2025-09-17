@@ -1,24 +1,33 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link, useLocation } from 'react-router-dom';
 import logoSaida from '@/assets/logo-saida.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
-    { name: 'Accueil', href: '#accueil' },
-    { name: 'Services', href: '#services' },
-    { name: 'Avis client', href: '#avis' },
-    { name: 'FAQ', href: '#faq' },
+    { name: 'Accueil', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Contact', href: '/contact' },
   ];
+
+  const isActiveLink = (href: string) => {
+    if (href === '/') {
+      return location.pathname === '/';
+    }
+    return location.pathname === href;
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/10 backdrop-blur-sm border-b border-border/5">
       <div className="container mx-auto px-4 py-1">
         <div className="flex items-center justify-between">
           {/* Logo et nom */}
-          <div className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center space-x-4 hover:opacity-80 transition-opacity duration-300">
             <div className="relative group">
               <img 
                 src={logoSaida} 
@@ -38,29 +47,23 @@ const Header = () => {
               </div>
               <p className="text-xs text-white/90 font-light">La confiance en service</p>
             </div>
-          </div>
+          </Link>
 
           {/* Menu desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
-                className="text-white hover:text-accent transition-colors duration-300 font-medium"
+                to={item.href}
+                className={`transition-colors duration-300 font-medium ${
+                  isActiveLink(item.href) 
+                    ? 'text-accent border-b-2 border-accent' 
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              className="bg-accent text-accent-foreground px-6 py-2 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 pulse-orange relative overflow-hidden group"
-              style={{ 
-                boxShadow: '0 4px 20px rgba(243, 156, 18, 0.4), 0 0 0 2px rgba(243, 156, 18, 0.1)' 
-              }}
-            >
-              <span className="relative z-10">Contactez-nous</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
           </nav>
 
           {/* Bouton menu mobile */}
@@ -79,25 +82,19 @@ const Header = () => {
           <nav className="md:hidden mt-4 pb-4 border-t border-border pt-4 slide-in-right">
             <div className="flex flex-col space-y-4">
               {menuItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
-                  className="text-white hover:text-accent transition-colors duration-300 font-medium"
+                  to={item.href}
+                  className={`transition-colors duration-300 font-medium ${
+                    isActiveLink(item.href) 
+                      ? 'text-accent' 
+                      : 'text-white hover:text-accent'
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
-                className="bg-accent text-accent-foreground px-8 py-3 rounded-full font-semibold hover:bg-accent/90 transition-all duration-300 shadow-lg w-fit hover:scale-105 pulse-orange"
-                onClick={() => setIsMenuOpen(false)}
-                style={{ 
-                  boxShadow: '0 4px 20px rgba(243, 156, 18, 0.4)' 
-                }}
-              >
-                Contactez-nous
-              </a>
             </div>
           </nav>
         )}
