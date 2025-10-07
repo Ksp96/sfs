@@ -43,20 +43,20 @@ const ContactSection = () => {
           backgroundSize: '40px 40px'
         }} />
       </div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* En-tête de section amélioré */}
           <div className="text-center mb-20 fade-in-up">
-            <div className="inline-block mb-4 px-6 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <span className="text-sm font-semibold tracking-wide uppercase">Restons en contact</span>
+            <div className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-accent/20 to-green-500/20 backdrop-blur-sm rounded-full border border-accent/30 animate-fade-in">
+              <span className="text-sm font-semibold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-accent to-green-400">Restons en contact</span>
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-accent/90 to-green-400 animate-fade-in" style={{ animationDelay: '0.1s' }}>
               Contactez-nous
             </h2>
-            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
               Notre équipe est à votre disposition 24/7 pour répondre à toutes vos questions 
               et vous accompagner dans vos démarches.
             </p>
@@ -64,60 +64,71 @@ const ContactSection = () => {
 
           {/* Grille des informations de contact restructurée */}
           <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
-            {contactInfo.map((info, index) => (
-              <Card
-                key={info.title}
-                className="bg-white/5 backdrop-blur-md border-white/10 text-white hover:bg-white/10 hover:border-white/20 transition-all duration-500 fade-in-up group overflow-hidden relative"
-                style={{
-                  animationDelay: `${index * 0.1}s`
-                }}
-              >
-                {/* Effet de brillance au hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                
-                <CardHeader className="pb-3">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 rounded-xl bg-accent/20 text-accent group-hover:bg-accent group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">
-                      {info.icon}
+            {contactInfo.map((info, index) => {
+              const isEven = index % 2 === 0;
+              const bgColor = isEven ? 'from-accent/90 to-accent' : 'from-green-500 to-green-600';
+              const hoverBg = isEven ? 'hover:from-accent hover:to-accent/90' : 'hover:from-green-600 hover:to-green-500';
+              
+              return (
+                <Card
+                  key={info.title}
+                  className={`bg-gradient-to-br ${bgColor} ${hoverBg} border-none text-white transition-all duration-500 fade-in-up group overflow-hidden relative shadow-2xl hover:shadow-3xl hover:scale-105 hover:-translate-y-2`}
+                  style={{
+                    animationDelay: `${index * 0.15}s`
+                  }}
+                >
+                  {/* Effet de brillance au hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  
+                  {/* Effet de particules */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
+                  
+                  <CardHeader className="pb-3 relative z-10">
+                    <div className="flex items-center space-x-4">
+                      <div className="p-3 rounded-xl bg-white/20 backdrop-blur-sm text-white group-hover:bg-white group-hover:text-current group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                        {info.icon}
+                      </div>
+                      <CardTitle className="text-xl font-bold text-white drop-shadow-lg">{info.title}</CardTitle>
                     </div>
-                    <CardTitle className="text-xl font-bold">{info.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="relative">
-                  <p className="text-white/90 mb-4 leading-relaxed text-base">
-                    {info.details}
-                  </p>
-                  {info.action && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="border-white/20 text-white hover:bg-white hover:text-primary transition-all duration-300 font-medium"
-                    >
-                      <a href={info.action} target={info.action.startsWith('http') ? '_blank' : undefined}>
-                        {info.actionText}
-                      </a>
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
-            ))}
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <p className="text-white/95 mb-4 leading-relaxed text-base font-medium drop-shadow">
+                      {info.details}
+                    </p>
+                    {info.action && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="border-2 border-white/40 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-current transition-all duration-300 font-semibold shadow-lg hover:shadow-xl hover:scale-105"
+                      >
+                        <a href={info.action} target={info.action.startsWith('http') ? '_blank' : undefined}>
+                          {info.actionText}
+                        </a>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
           {/* Call to Action amélioré */}
-          <div className="text-center fade-in-up max-w-2xl mx-auto" style={{ animationDelay: '0.5s' }}>
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md rounded-3xl p-10 border border-white/20 shadow-2xl relative overflow-hidden">
-              {/* Effet de fond */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-secondary/5" />
+          <div className="text-center fade-in-up max-w-2xl mx-auto" style={{ animationDelay: '0.6s' }}>
+            <div className="bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-xl rounded-3xl p-10 border-2 border-white/30 shadow-2xl relative overflow-hidden group hover:scale-105 transition-all duration-500">
+              {/* Effet de fond animé */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-green-500/10 to-accent/10 animate-pulse" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-500/20 rounded-full blur-3xl group-hover:scale-150 transition-transform duration-1000" style={{ animationDelay: '0.5s' }} />
               
               <div className="relative z-10">
-                <div className="inline-block p-3 bg-accent/20 rounded-full mb-6">
-                  <Phone className="h-8 w-8 text-accent" />
+                <div className="inline-block p-4 bg-gradient-to-br from-accent to-green-500 rounded-full mb-6 animate-bounce shadow-xl">
+                  <Phone className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-accent/90 to-green-400">
                   Prêt à commencer ?
                 </h3>
-                <p className="text-white/80 mb-8 text-lg leading-relaxed">
+                <p className="text-white/90 mb-8 text-lg leading-relaxed">
                   Contactez-nous dès maintenant et découvrez comment nous pouvons 
                   simplifier votre quotidien avec nos services de qualité.
                 </p>
@@ -125,7 +136,7 @@ const ContactSection = () => {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-accent hover:bg-accent/90 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    className="bg-gradient-to-r from-accent to-accent/90 hover:from-accent/90 hover:to-accent text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl hover:shadow-accent/50 hover:scale-110 transition-all duration-300 border-2 border-white/20"
                   >
                     <a href="tel:+2250767371357">
                       <Phone className="mr-2 h-5 w-5" />
@@ -135,8 +146,7 @@ const ContactSection = () => {
                   <Button
                     asChild
                     size="lg"
-                    variant="outline"
-                    className="border-2 border-white/30 text-white hover:bg-white hover:text-primary px-8 py-6 text-lg font-semibold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-500 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 border-2 border-white/20"
                   >
                     <a href="mailto:spacome62@gmail.com">
                       <Mail className="mr-2 h-5 w-5" />
