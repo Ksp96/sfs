@@ -99,6 +99,30 @@ export default {
             opacity: "1",
             transform: "translateX(0)"
           }
+        },
+        "shimmer": {
+          "0%": {
+            transform: "translateX(-100%)"
+          },
+          "100%": {
+            transform: "translateX(100%)"
+          }
+        },
+        "glow-pulse": {
+          "0%, 100%": {
+            boxShadow: "0 0 20px rgba(0, 255, 255, 0.3)"
+          },
+          "50%": {
+            boxShadow: "0 0 40px rgba(0, 255, 255, 0.6), 0 0 60px rgba(138, 43, 226, 0.4)"
+          }
+        },
+        "float-elegant": {
+          "0%, 100%": {
+            transform: "translateY(0px)"
+          },
+          "50%": {
+            transform: "translateY(-15px)"
+          }
         }
       },
       animation: {
@@ -106,6 +130,9 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.6s ease-out",
         "slide-in": "slide-in 0.8s ease-out",
+        "shimmer": "shimmer 3s infinite",
+        "glow-pulse": "glow-pulse 2.5s ease-in-out infinite",
+        "float-elegant": "float-elegant 4s ease-in-out infinite",
       },
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],

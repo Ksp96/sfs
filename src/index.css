@@ -8,47 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Saïda et Frères Services Color Palette */
-    --brand-deep-blue: 203 89% 16%;         /* #0A2540 */
-    --brand-energy-green: 145 60% 48%;      /* #2ECC71 */
-    --brand-bright-orange: 35 84% 52%;      /* #F39C12 */
-    --brand-pure-white: 0 0% 100%;          /* #FFFFFF */
-    --brand-light-gray: 216 26% 96%;        /* #F4F6F7 */
+    /* Palette Moderne Premium - Bleu Royal, Violet & Cyan */
+    --brand-royal-blue: 228 80% 20%;         /* Bleu profond royal */
+    --brand-royal-light: 228 70% 35%;        /* Bleu royal clair */
+    --brand-electric-violet: 265 85% 58%;    /* Violet électrique */
+    --brand-cyber-cyan: 190 95% 50%;         /* Cyan lumineux */
+    --brand-gold-accent: 45 100% 60%;        /* Or subtil */
+    --brand-pure-white: 0 0% 100%;           /* Blanc pur */
+    --brand-light-gray: 220 20% 97%;         /* Gris très clair */
+    --brand-soft-blue: 220 40% 96%;          /* Bleu très doux */
     
     /* Primary Design System */
     --background: var(--brand-pure-white);
-    --foreground: var(--brand-deep-blue);
+    --foreground: var(--brand-royal-blue);
 
     --card: var(--brand-pure-white);
-    --card-foreground: var(--brand-deep-blue);
+    --card-foreground: var(--brand-royal-blue);
 
     --popover: var(--brand-pure-white);
-    --popover-foreground: var(--brand-deep-blue);
+    --popover-foreground: var(--brand-royal-blue);
 
-    --primary: var(--brand-deep-blue);
+    --primary: var(--brand-royal-blue);
     --primary-foreground: var(--brand-pure-white);
 
-    --secondary: var(--brand-energy-green);
+    --secondary: var(--brand-electric-violet);
     --secondary-foreground: var(--brand-pure-white);
 
-    --muted: var(--brand-light-gray);
-    --muted-foreground: var(--brand-deep-blue);
+    --muted: var(--brand-soft-blue);
+    --muted-foreground: var(--brand-royal-blue);
 
-    --accent: var(--brand-bright-orange);
-    --accent-foreground: var(--brand-pure-white);
+    --accent: var(--brand-cyber-cyan);
+    --accent-foreground: var(--brand-royal-blue);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: var(--brand-pure-white);
 
     --border: var(--brand-light-gray);
-    --input: var(--brand-light-gray);
-    --ring: var(--brand-deep-blue);
+    --input: var(--brand-soft-blue);
+    --ring: var(--brand-royal-blue);
 
-    /* Brand specific tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(var(--brand-deep-blue)), hsl(var(--brand-energy-green)));
-    --glow-effect: 0 0 30px hsl(var(--brand-bright-orange) / 0.5);
-    --logo-hover-glow: 0 0 20px hsl(var(--brand-energy-green) / 0.8);
-    --button-glow: 0 8px 25px hsl(var(--brand-bright-orange) / 0.4);
+    /* Brand specific tokens - Effets lumineux premium */
+    --hero-gradient: linear-gradient(135deg, hsl(var(--brand-royal-blue)), hsl(var(--brand-electric-violet)), hsl(var(--brand-cyber-cyan)));
+    --glow-effect: 0 0 40px hsl(var(--brand-cyber-cyan) / 0.6);
+    --logo-hover-glow: 0 0 25px hsl(var(--brand-electric-violet) / 0.8);
+    --button-glow: 0 8px 30px hsl(var(--brand-cyber-cyan) / 0.5);
+    --shimmer-gradient: linear-gradient(90deg, transparent, hsl(var(--brand-cyber-cyan) / 0.3), transparent);
+    --gold-glow: 0 0 20px hsl(var(--brand-gold-accent) / 0.6);
     
     --radius: 1rem;
 
@@ -70,42 +75,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: var(--brand-deep-blue);
+    --background: var(--brand-royal-blue);
     --foreground: var(--brand-pure-white);
 
-    --card: var(--brand-deep-blue);
+    --card: var(--brand-royal-light);
     --card-foreground: var(--brand-pure-white);
 
-    --popover: var(--brand-deep-blue);
+    --popover: var(--brand-royal-blue);
     --popover-foreground: var(--brand-pure-white);
 
     --primary: var(--brand-pure-white);
-    --primary-foreground: var(--brand-deep-blue);
+    --primary-foreground: var(--brand-royal-blue);
 
-    --secondary: var(--brand-energy-green);
+    --secondary: var(--brand-electric-violet);
     --secondary-foreground: var(--brand-pure-white);
 
-    --muted: var(--brand-deep-blue);
+    --muted: var(--brand-royal-light);
     --muted-foreground: var(--brand-light-gray);
 
-    --accent: var(--brand-bright-orange);
-    --accent-foreground: var(--brand-pure-white);
+    --accent: var(--brand-cyber-cyan);
+    --accent-foreground: var(--brand-royal-blue);
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: var(--brand-pure-white);
 
-    --border: var(--brand-energy-green);
-    --input: var(--brand-deep-blue);
-    --ring: var(--brand-energy-green);
+    --border: var(--brand-electric-violet);
+    --input: var(--brand-royal-light);
+    --ring: var(--brand-cyber-cyan);
     
-    --sidebar-background: var(--brand-deep-blue);
+    --sidebar-background: var(--brand-royal-blue);
     --sidebar-foreground: var(--brand-pure-white);
-    --sidebar-primary: var(--brand-energy-green);
+    --sidebar-primary: var(--brand-electric-violet);
     --sidebar-primary-foreground: var(--brand-pure-white);
-    --sidebar-accent: var(--brand-bright-orange);
-    --sidebar-accent-foreground: var(--brand-pure-white);
-    --sidebar-border: var(--brand-energy-green);
-    --sidebar-ring: var(--brand-bright-orange);
+    --sidebar-accent: var(--brand-cyber-cyan);
+    --sidebar-accent-foreground: var(--brand-royal-blue);
+    --sidebar-border: var(--brand-electric-violet);
+    --sidebar-ring: var(--brand-cyber-cyan);
   }
 }
 
@@ -133,33 +138,109 @@ All colors MUST be HSL.
   }
 }
 
-/* Brand Animations */
+/* Brand Animations Premium */
+
+/* Shimmer - Effet de brillance qui traverse */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Gradient rotation animée */
+@keyframes gradient-rotate {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glow pulsation élégante */
+@keyframes elegant-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--brand-cyber-cyan) / 0.3),
+                0 0 40px hsl(var(--brand-electric-violet) / 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--brand-cyber-cyan) / 0.6),
+                0 0 60px hsl(var(--brand-electric-violet) / 0.4),
+                0 0 80px hsl(var(--brand-gold-accent) / 0.2);
+  }
+}
+
+/* Float sophistiqué */
+@keyframes sophisticated-float {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) perspective(1000px) rotateY(-3deg);
+  }
+  33% { 
+    transform: translateY(-15px) translateX(5px) perspective(1000px) rotateY(0deg);
+  }
+  66% { 
+    transform: translateY(-8px) translateX(-5px) perspective(1000px) rotateY(3deg);
+  }
+}
+
+/* Bounce élégant */
+@keyframes elegant-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(-10px) scale(1.05);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+  75% {
+    transform: translateY(-8px) scale(1.03);
+  }
+}
+
+/* Rotation subtile avec glow */
+@keyframes rotate-glow {
+  0% {
+    transform: rotate(0deg);
+    filter: drop-shadow(0 0 10px hsl(var(--brand-cyber-cyan) / 0.5));
+  }
+  50% {
+    transform: rotate(180deg);
+    filter: drop-shadow(0 0 20px hsl(var(--brand-electric-violet) / 0.7));
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: drop-shadow(0 0 10px hsl(var(--brand-cyber-cyan) / 0.5));
+  }
+}
+
+/* Logo glow premium */
 @keyframes logo-glow {
   0%, 100% { 
     box-shadow: var(--logo-hover-glow);
-    transform: translateY(0px);
+    transform: translateY(0px) scale(1);
   }
   50% { 
-    box-shadow: var(--glow-effect);
-    transform: translateY(-5px);
+    box-shadow: var(--glow-effect), var(--gold-glow);
+    transform: translateY(-5px) scale(1.05);
   }
 }
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
-  }
-  50% { 
-    transform: translateY(-10px) perspective(1000px) rotateY(-5deg) rotateX(2deg);
-  }
-}
-
+/* Pulse lumineux */
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 5px hsl(var(--brand-bright-orange) / 0.5);
+    box-shadow: 0 0 10px hsl(var(--brand-cyber-cyan) / 0.4);
   }
   50% { 
-    box-shadow: 0 0 25px hsl(var(--brand-bright-orange) / 0.9);
+    box-shadow: 0 0 35px hsl(var(--brand-cyber-cyan) / 0.8),
+                0 0 50px hsl(var(--brand-electric-violet) / 0.5);
   }
 }
 
@@ -212,17 +293,17 @@ All colors MUST be HSL.
   }
 }
 
-/* Utility Classes */
+/* Utility Classes Premium */
 .logo-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-hover:hover {
-  animation: logo-glow 1.5s ease-in-out infinite;
+  animation: logo-glow 2s ease-in-out infinite;
 }
 
-.pulse-orange {
-  animation: pulse-glow 2s ease-in-out infinite;
+.pulse-cyan {
+  animation: pulse-glow 2.5s ease-in-out infinite;
 }
 
 .slide-in-left {
@@ -238,7 +319,7 @@ All colors MUST be HSL.
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: sophisticated-float 8s ease-in-out infinite;
 }
 
 .parallax-slow {
@@ -253,15 +334,50 @@ All colors MUST be HSL.
   animation: parallax-hero 20s ease-in-out infinite alternate;
 }
 
-/* FAQ Icon Animations */
+/* Nouvelles classes utilitaires */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--shimmer-gradient);
+  animation: shimmer 3s infinite;
+}
+
+.gradient-animate {
+  background-size: 200% 200%;
+  animation: gradient-rotate 8s ease infinite;
+}
+
+.elegant-glow {
+  animation: elegant-glow 3s ease-in-out infinite;
+}
+
+.elegant-bounce {
+  animation: elegant-bounce 2s ease-in-out infinite;
+}
+
+.rotate-glow {
+  animation: rotate-glow 10s linear infinite;
+}
+
+/* FAQ Icon Animations Premium */
 @keyframes icon-glow {
   0%, 100% { 
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px hsl(var(--brand-cyber-cyan) / 0.2);
     transform: translateY(0px) scale(1);
   }
   50% { 
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 35px hsl(var(--brand-electric-violet) / 0.4),
+                0 12px 50px hsl(var(--brand-cyber-cyan) / 0.3);
+    transform: translateY(-3px) scale(1.08);
   }
 }
 
@@ -272,7 +388,21 @@ All colors MUST be HSL.
   }
   50% { 
     opacity: 1;
-    transform: scale(1) rotate(180deg);
+    transform: scale(1.2) rotate(180deg);
+    filter: drop-shadow(0 0 8px hsl(var(--brand-gold-accent) / 0.8));
+  }
+}
+
+/* Nouveaux effets pour icônes */
+@keyframes icon-pulse-3d {
+  0%, 100% {
+    transform: scale(1) rotateY(0deg);
+    box-shadow: 0 4px 15px hsl(var(--brand-cyber-cyan) / 0.3);
+  }
+  50% {
+    transform: scale(1.1) rotateY(180deg);
+    box-shadow: 0 8px 30px hsl(var(--brand-electric-violet) / 0.5),
+                0 12px 40px hsl(var(--brand-cyber-cyan) / 0.4);
   }
 }
 
@@ -282,4 +412,9 @@ All colors MUST be HSL.
 
 .sparkle-effect {
   animation: sparkle 3s ease-in-out infinite;
+}
+
+.icon-3d-pulse {
+  animation: icon-pulse-3d 3s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
