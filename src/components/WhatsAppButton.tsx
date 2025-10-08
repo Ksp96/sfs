@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import whatsappLogo from '@/assets/whatsapp-logo-new.webp';
 
 const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,33 +28,45 @@ const WhatsAppButton = () => {
       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
     }`}>
       <TooltipProvider>
-        <Tooltip>
+        <Tooltip open={showTooltip}>
           <TooltipTrigger asChild>
             <Button
               asChild
               size="sm"
-              className="bg-secondary hover:bg-secondary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative animate-pulse hover:animate-none whatsapp-hover"
+              className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/50 transition-all duration-300 group relative hover:scale-110 border-2 border-white/20"
               style={{
-                width: '56px',
-                height: '56px',
-                boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)'
+                width: '64px',
+                height: '64px',
+                boxShadow: '0 8px 32px rgba(37, 211, 102, 0.5)'
               }}
             >
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-full h-full rounded-full"
+                className="flex items-center justify-center w-full h-full rounded-full relative overflow-hidden"
               >
-                <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+                <img 
+                  src={whatsappLogo} 
+                  alt="WhatsApp" 
+                  className="h-8 w-8 group-hover:scale-110 transition-transform duration-300 relative z-10 drop-shadow-lg"
+                />
                 
-                {/* Effet de pulse subtil */}
-                <div className="absolute inset-0 rounded-full bg-secondary opacity-50 animate-ping" />
+                {/* Effet de pulse animé */}
+                <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 animate-ping" />
+                
+                {/* Effet de brillance au hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
               </a>
             </Button>
           </TooltipTrigger>
-          <TooltipContent className="bg-primary text-white border-primary">
-            <p>Discutez sur WhatsApp</p>
+          <TooltipContent 
+            side="right"
+            className="bg-[#25D366] text-white border-[#25D366] shadow-xl font-medium"
+          >
+            <p className="flex items-center gap-2">
+              💬 Discutez avec nous sur WhatsApp
+            </p>
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
