@@ -32,12 +32,11 @@ const WhatsAppButton = () => {
           <TooltipTrigger asChild>
             <Button
               asChild
-              size="sm"
-              className="bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/50 transition-all duration-300 group relative hover:scale-110 border-2 border-white/20"
+              size="lg"
+              className="bg-gradient-to-r from-[#25D366] to-[#20BA5A] hover:from-[#20BA5A] hover:to-[#25D366] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/50 hover:scale-110 transition-all duration-300 border-2 border-white/20 shimmer-effect group relative"
               style={{
-                width: '64px',
-                height: '64px',
-                boxShadow: '0 8px 32px rgba(37, 211, 102, 0.5)'
+                width: '70px',
+                height: '70px'
               }}
             >
               <a
